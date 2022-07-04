@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 960px;
+  margin: 20px auto;
+}
+
+.view {
+  background-color: antiquewhite;
+  border: 5px solid black;
+  position: relative;
+}
+
+
+.segment {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  position: absolute;
+}
+
+.food {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+}
