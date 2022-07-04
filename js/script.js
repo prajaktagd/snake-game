@@ -53,7 +53,8 @@
 
   const roundToSeg = (n) => {
     const mod = n % segDiameter;
-    return n - mod;
+    const roundedNum = n - mod;
+    return roundedNum < foodRadius ? n + mod : roundedNum;
   }
 
   const randomNumber = (start, end) => {
@@ -176,7 +177,7 @@
   };
 
   const startGame = (view, snake, food) => {
-    document.addEventListener('keydown', (event) => onkeydown(event, snake));
+    window.addEventListener('keydown', (event) => onkeydown(event, snake));
     const incScore = seqGenerator();
 
     const viewElement = document.getElementById('view');
@@ -195,7 +196,7 @@
       }
       snake.move();
       draw(snake, food, viewElement);
-    }, 100);
+    }, 300);
   };
 
   const view = { top: 0, bottom: 700, left: 0, right: 700 };
@@ -203,4 +204,3 @@
   const food = { x: 10, y: 20 };
   window.onload = () => startGame(view, snake, food);
 })();
-
