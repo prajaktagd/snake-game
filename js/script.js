@@ -196,7 +196,7 @@
       }
       snake.move();
       draw(snake, food, viewElement);
-    }, 300);
+    }, 100);
   };
 
   const view = { top: 0, bottom: 700, left: 0, right: 700 };
