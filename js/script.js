@@ -1,7 +1,7 @@
 (function () {
   const segRadius = 5;
   const segDiameter = segRadius * 2;
-  const foodRadius = 5;
+  const foodRadius = 3;
 
   const px = (value) => value + 'px';
 
@@ -162,8 +162,22 @@
     snake.changeDirection(direction);
   };
 
+  const seqGenerator = () => {
+    let number = 0;
+    return (step = 1) => {
+      number += step;
+      return number;
+    }
+  };
+
+  const updateScore = (score) => {
+    const scoreElement = document.getElementById('score');
+    scoreElement.innerText = score;
+  };
+
   const startGame = (view, snake, food) => {
     document.addEventListener('keydown', (event) => onkeydown(event, snake));
+    const incScore = seqGenerator();
 
     const viewElement = document.getElementById('view');
     drawView(view, viewElement);
@@ -177,13 +191,14 @@
       if (snake.hasEatenFood(food)) {
         snake.increaseLength();
         addFood(food, view);
+        updateScore(incScore());
       }
       snake.move();
       draw(snake, food, viewElement);
     }, 100);
   };
 
-  const view = { top: 0, bottom: 500, left: 0, right: 500 };
+  const view = { top: 0, bottom: 700, left: 0, right: 700 };
   const snake = new Snake({ x: 10, y: 10 });
   const food = { x: 10, y: 20 };
   window.onload = () => startGame(view, snake, food);
