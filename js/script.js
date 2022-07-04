@@ -145,8 +145,8 @@
   }
 
   const addFood = (food, view) => {
-    food.x = randomNumber(view.top, (view.bottom - foodRadius));
-    food.y = randomNumber(view.left, (view.right - foodRadius));
+    food.x = randomNumber((view.top + foodRadius), (view.bottom - foodRadius));
+    food.y = randomNumber((view.left + foodRadius), (view.right - foodRadius));
   };
 
   const onkeydown = (event, snake) => {
@@ -180,7 +180,7 @@
       }
       snake.move();
       draw(snake, food, viewElement);
-    }, 30);
+    }, 100);
   };
 
   const view = { top: 0, bottom: 500, left: 0, right: 500 };
