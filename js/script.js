@@ -1,7 +1,7 @@
 (function () {
   const segRadius = 5;
   const segDiameter = segRadius * 2;
-  const foodRadius = 3;
+  const foodRadius = 5;
 
   const px = (value) => value + 'px';
 
